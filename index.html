@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clases de Inglés con Enfoque Práctico y Atención Personal</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Navbar (menú) -->
+  <nav class="navbar">
+      <button class="menu-toggle">☰</button>
+      <ul>
+          <li><a href="#how-it-works">¿Cómo funciona?</a></li>
+          <li><a href="#benefits">Beneficios</a></li>
+          <li><a href="#testimonials">Testimonios</a></li>
+          <li><a href="#para-quien">¿Es para ti?</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <!-- Botón de WhatsApp en la navbar -->
+      <a 
+        href="https://wa.me/56962299656" 
+        class="navbar-whatsapp" 
+        target="_blank"
+        rel="noopener"
+      >
+        <img 
+          src="images/whatsapp-color.svg" 
+          alt="WhatsApp"
+          class="navbar-whatsapp-icon"
+        >
+        <span class="navbar-whatsapp-text">
+          ¿Hablamos? Escríbeme ahora por WhatsApp
+        </span>
+      </a>
+  </nav>
+
+  <style>
+    /* ---------- SCROLL BEHAVIOR SUAVE ---------- */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* =============== BODY GLOBAL =============== */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        padding-top: 65px; /* empuja todo el contenido debajo del menú fijo */
+        text-align: center;
+        background-color: #f0f8ff;
+        overflow-x: hidden;
+    }
+
+    /* =============== NAVBAR =============== */
+    .navbar {
+        display: flex;           /* Organiza en fila */
+        align-items: center;     /* Centra verticalmente */
+        justify-content: safe center; /* Ajusta si quieres centrar o espaciar */
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #0066B2;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        padding: 18px 0; /* Más altura para lucir moderna */
+        text-align: center;
+        z-index: 1000;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .navbar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* inline-flex en lugar de flex para que el siguiente link esté a la derecha */
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+        vertical-align: middle; /* alineación con link de WhatsApp */
+    }
+    .navbar ul li {
+        display: inline;
+    }
+    .navbar ul li a {
+        color: white;
+        white-space: nowrap;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 10px 6px;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .navbar ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* ======== Línea divisoria entre ítems del menú (solo en escritorio) ======== */
+    @media (min-width: 961px) {
+      .navbar ul li + li {
+        /* Un sutil borde en el lado izquierdo de cada li, excepto el primero */
+        border-left: 1px solid rgba(255, 255, 255, 0.3);
+        padding-left: 20px; /* Separación del texto respecto a la línea */
+        margin-left: 5px;   /* Ajusta si quieres más espacio */
+      }
+    }
+    /* ====================== */
+
+    /* Modo móvil */
+    .menu-toggle {
+        display: none;
+        font-size: 28px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 12px;
+        z-index: 1001;
+    }
+    @media (max-width: 960px) {
+        .navbar ul {
+            display: none;
+            flex-direction: column;
+            background: linear-gradient(180deg, #0066B2 0%, #0081CF 100%);
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+        }
+        .navbar ul li {
+            margin: 10px 0;
+        }
+        .navbar ul.active {
+            display: flex;
+        }
+        .menu-toggle {
+            display: block;
+        }
+    }
+    /* Al hacer scroll, oscurecemos un poco la navbar y sumamos sombra */
+    .navbar.scrolled {
+        background: #0066B2;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    /* Resaltar la sección activa en el menú */
+    .navbar ul li.active a {
+        background-color: rgba(0,0,0,0.2);
+        color: #FFFFFF;
+        transition: background 0.3s ease-in-out;
+    }
+
+    /* === BOTÓN DE WHATSAPP EN LA NAVBAR === */
+    .navbar-whatsapp {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;  /* Espacio entre la lista y este botón */
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      vertical-align: middle;
+    }
+    .navbar-whatsapp-icon {
+      width: 22px;
+      height: 22px;
+      margin-right: 6px;
+    }
+    .navbar-whatsapp-text {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 15px;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+    .navbar-whatsapp:hover .navbar-whatsapp-text {
+      background-color: rgba(0, 0, 0, 0.35);
+    }
+@media (max-width: 960px) {
+  .navbar-whatsapp-text {
+    font-size: 13px; /* actualmente 15px */
+  }
+}
+
+    /* =============== HEADER =============== */
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;         /* Centra verticalmente el contenido */
+  align-items: center;            /* Centra horizontalmente */
+  background-image: url("images/Header/headerfinal14.webp");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  min-height: 300px;
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+/* TÍTULO DEL HEADER */
+.header-title {
+  font-size: 45px;
+  font-weight: bold;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.65);
+}
+
+/* SUBTÍTULO DEL HEADER */
+.header-subtitle {
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: bold;
+  max-width: 1170px;
+  margin: 0 auto;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.65);
+}
+
+/* ========== VISTA MÓVIL ========== */
+@media (max-width: 768px) {
+  header {
+    background-image: url('images/Header/header-mobile8.webp');
+    background-size: cover;
+    background-position: center 70%;
+    min-height: 420px;
+    padding: 20px;
+  }
+
+  .header-title {
+    font-size: 32px;
+    max-width: 75%;
+    padding: 0 15px;
+    margin: 0 auto 20px auto;
+  }
+
+  .header-subtitle {
+    font-size: 18px;
+    line-height: 1.4;
+    max-width: 95%;
+    padding: 0 10px;
+    margin: 0 auto;
+    word-break: normal;
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
+    /* =============== PROGRESS BAR (BARRA SUPERIOR) =============== */
+    .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 4px;
+        background: rgba(255,255,255,0.6);
+        z-index: 1000;
+    }
+
+    /* Se elimina el .cta-float de antes (ya no se usa) */
+
+    /* =============== SE ELIMINA WHATSAPP FLOAT =============== */
+    /* (ya no se usa el botón flotante de WhatsApp) */
+
+    /* Ajuste de anclas para que no queden ocultas tras la navbar */
+    section[id] {
+      scroll-margin-top: 80px; /* Ajusta según la altura de tu navbar */
+    }
+
+    /* =============== CONTACT-FORM =============== */
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form label {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 14px;
+  border: 1.5px solid #0066B2;
+  border-radius: 8px;
+  background-color: #fcfcfc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
+  color: #333;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00589C;
+  box-shadow: 0px 4px 10px rgba(0, 88, 156, 0.15);
+  outline: none;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: #0066B2;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: bold;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  max-width: 320px;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form button:hover {
+  background-color: #00589C;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form p {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: left;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 18px 16px;
+    gap: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .contact-form label {
+    font-size: 0.95rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1rem;
+    padding: 11px 12px;
+  }
+
+  .contact-form textarea {
+    min-height: 100px;
+  }
+
+  .contact-form button {
+    font-size: 1rem;
+    padding: 13px 20px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .contact-form p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+}
+
+    /* =============== SUBTITLE CLASS =============== */
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 35px;
+  font-size: 1.2rem;
+  color: #444;
+  font-weight: 400;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+    /* =============== HOW-IT-WORKS (Sección “¿Cómo funciona?”) =============== */
+    .how-it-works {
+        text-align: center;
+        padding: 40px 20px 20px 20px;
+        max-width: 1200px;
+        margin: 10px auto;
+    }
+    .how-it-works h2 {
+        margin-top: 0;
+    }
+    .steps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    .step-card {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 250px;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+    }
+    .step-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+    .step-card h3 {
+        font-size: 1.2rem;
+        margin: 10px 0;
+    }
+    .step-card p {
+        font-size: 1rem;
+        margin: 0;
+  line-height: 1.5;
+  color: #444;
+    }
+    .steps-cta-container {
+        margin-top: 40px;
+    }
+    @media (min-width: 768px) {
+        .step-card {
+            width: 300px;
+        }
+    }
+    @media (min-width: 1024px) {
+        .steps {
+            justify-content: space-between;
+        }
+    }
+
+    /* =============== BENEFICIOS =============== */
+    .benefits {
+        text-align: center;
+        padding: 35px 20px 30px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .benefits h2 {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .benefit-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+        text-align: left;
+    }
+.benefit-card h3 {
+  margin: 4px 0 14px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0066B2;
+}
+    .benefit-card ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+    .benefit-card li {
+        margin-bottom: 5px;
+}
+
+    .benefits-cta-container {
+        text-align: center;
+        margin-top: 30px;
+    }
+    @media (max-width: 480px) {
+        .benefits h2 {
+            font-size: 1.6rem;
+        }
+        .benefit-card h3 {
+            font-size: 1.1rem;
+        }
+
+        .benefits {
+            padding: 20px 15px;
+        }
+    }
+
+    /* =============== TESTIMONIALS (Sección “Resultados Reales”) =============== */
+    .testimonials {
+        background-color: #f4f4f4;
+        padding: 35px 20px 35px 20px;
+        margin: 30px auto 0 auto;
+        max-width: 80%;
+        border-radius: 10px;
+        position: relative;
+    }
+    .testimonials h2 {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        text-align: center;
+  position: relative;
+  top: -7px;
+    }
+    .testimonials .intro {
+        font-size: 18px;
+        color: #333;
+        max-width: 700px;
+        margin: 0 auto 40px auto;
+        text-align: center;
+    }
+    .testimonial-slider {
+        max-width: 800px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .testimonial-cards {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .testimonial-card {
+        flex: 0 0 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    .testimonial-text {
+        font-size: 16px;
+        line-height: 1.4;
+        margin: 0;
+    }
+    .testimonial-author {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+    .testimonial-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #0081CF;
+        color: #fff;
+        border: none;
+        font-size: 24px;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 2;
+    }
+    .left-arrow {
+        left: 10px;
+    }
+    .right-arrow {
+        right: 10px;
+    }
+    .testimonial-arrow:hover {
+      background-color: #0066B2;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0px 8px 15px rgba(0,0,0,0.2);
+    }
+    .testimonial-dots {
+        margin-top: 15px;
+        text-align: center;
+    }
+    .testimonial-dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        background-color: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .testimonial-dot.active {
+        background-color: #0073e6;
+    }
+    .testimonial-cta-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* =============== PARA QUIEN =============== */
+    .para-quien {
+        text-align: center;
+        padding: 40px 20px 35px 20px;
+        max-width: 1200px;
+        margin: 10px auto;
+    }
+    .para-quien h2 {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+    .target-audience-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .audience-card {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+        text-align: left;
+    }
+    .audience-card h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    .audience-card p {
+        margin-top: 0;
+        margin-bottom: 10px;
+  line-height: 1.4;
+        font-size: 1rem;
+        color: #555;
+    }
+    .audience-card ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 0.95rem;
+        color: #555;
+    }
+    .audience-card li {
+        margin-bottom: 5px;
+    }
+    .target-audience-cta-container {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* =============== FAQ (Diseño Minimalista) =============== */
+    .faq {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        padding-top: 15px;
+        margin: 20px auto;
+        max-width: 900px;
+    }
+    .faq h2 {
+        margin-bottom: 40px;
+.faq .subtitle {
+  margin-bottom: 5px; /* o incluso 5px */
+}
+    }
+    .faq-item {
+        border-bottom: 1px solid #ddd;
+    }
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 20px 0;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+        color: #0073e6; 
+    }
+    .faq-icon {
+        transition: transform 0.3s ease;
+    }
+    .faq-answer {
+        font-size: 1rem;
+        max-height: 0;
+        line-height: 1.5;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        opacity: 0;
+        padding-right: 10px;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #555;
+     }
+    .faq-answer.open {
+        max-height: 400px;
+        opacity: 1;
+        margin-bottom: 20px;
+    }
+    .rotate {
+        transform: rotate(180deg);
+    }
+@media (max-width: 768px) {
+  .faq {
+    padding-left: 16px;
+    padding-right: 16px;
+
+  }
+
+  .faq-question {
+    font-size: 1.05rem;
+    padding: 15px 0;
+  }
+
+  .faq-icon {
+    font-size: 1.6rem;
+    padding-left: 6px;
+  }
+
+  .faq-answer {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-top: 10px;
+    color: #555;
+  }
+
+  .faq-item + .faq-item {
+    margin-top: 16px;
+  }
+
+  .faq .cta-button {
+    margin-top: 40px;
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+#contacto {
+  margin: 40px auto 20px auto;
+  max-width: 90%;
+}
+
+    /* =============== FOOTER =============== */
+footer {
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+@media (max-width: 768px) {
+  footer {
+    font-size: 14px;
+    padding: 16px;
+  }
+}
+
+    /* =============== ANIMACIONES FADE-IN / SCROLL-ANIMATION =============== */
+.fade-in, .scroll-animation {
+  opacity: 0;
+  transform: translateY(12px); /* ligero, elegante */
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.fade-in.visible, .scroll-animation.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+    /* =============== BOTÓN CTA GENÉRICO =============== */
+.cta-button {
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  color: #fff;
+  background-color: #0066B2;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #00589C;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .cta-button,
+  .contact-button {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+
+  .whatsapp-button,
+  .email-button,
+  .copy-email-button {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .copy-email-button svg {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-channels {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+  }
+
+  .contact-button img {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+  }
+}
+h2 {
+  color: #0066B2;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+    /* ======= BOTONES DE CONTACTO (WhatsApp y Email) ======= */
+    .contact-channels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 40px; /* Deja espacio antes del formulario */
+      margin-top: 30px;
+    }
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0066B2;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 8px;
+}
+
+.contact-button:hover {
+  background-color: #00589C;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-button img,
+.copy-email-button svg {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+}
+
+    /* =========================
+       BOTÓN FLOTANTE SCROLL-TOP
+       (Con anillo de progreso)
+       ========================= */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #0066B2;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      z-index: 999;
+      /* Por defecto lo ocultamos, lo mostrará el JS */
+      display: none;
+    }
+    .scroll-to-top:hover {
+      background-color: #00589C;
+      transform: scale(1.05);
+    }
+    .scroll-circle {
+      width: 50px;
+      height: 50px;
+      transform: rotate(-90deg); /* Para que empiece "arriba" */
+    }
+    .circle-bg {
+      fill: none;
+      stroke: #ffffff33; /* Blanco con transparencia */
+      stroke-width: 4;
+    }
+    .circle {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 100, 100;
+      stroke-dashoffset: 100;
+      transition: stroke-dashoffset 0.25s ease;
+    }
+    .arrow-up {
+      position: absolute;
+  /* Centramos en el contenedor .scroll-to-top de 60×60 */
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem; 
+  line-height: 1;   /* Evitar que se desplace por line-height mayor */
+  color: #fff;
+  z-index: 1;       /* Encima del SVG */
+}
+
+.small-break {
+  display: block;
+  height: 12px; /* ajusta según cuánto espacio quieras */
+  line-height: 0;
+}
+li {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #555;
+
+}
+ul {
+  padding-left: 20px;
+  margin-top: 0;
+  margin-bottom: 1.2em;
+  list-style-type: disc;
+}
+
+/* Responsive: puedes ajustar espaciado para móvil si deseas reducir */
+@media (max-width: 768px) {
+  .how-it-works,
+  .benefits,
+  .testimonials,
+  .para-quien,
+  .faq,
+  #contacto {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  footer {
+    margin-top: 40px;
+  }
+  h2 {
+    font-size: 1.6rem;        /* ligeramente más pequeño */
+    margin-bottom: 20px;      /* menos espacio para pantallas más estrechas */
+  }
+
+  .subtitle {
+    font-size: 1rem;          /* más legible en móviles */
+    margin-top: -2px;         /* separación más leve del h2 */
+    margin-bottom: 35px;      /* un poco menos de espacio */
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- Barra de progreso de scroll -->
+  <div class="progress-bar"></div>
+
+  <!-- Menú principal -->
+  <header>
+  <h1 class="header-title">
+    Clases de Inglés Premium, Individuales y con Resultados desde el Primer Día
+  </h1>
+  <p class="header-subtitle">
+    Un curso estructurado, práctico y personalizado que se adapta específicamente a ti, asegurando fluidez real en menos tiempo. Agenda ahora tu reunión online y comienza a avanzar con confianza.
+  </p>
+</header>
+
+  <!-- Sección "¿Cómo funciona?" -->
+  <section id="how-it-works" class="how-it-works fade-in">
+      <h2>¿Cómo funciona?</h2>
+      <p class="subtitle">
+          En solo tres pasos conocerás mi método y comenzarás a hablar inglés desde el primer día.
+      </p>
+
+      <div class="steps">
+          <!-- Paso 1 -->
+          <div class="step-card">
+            <img src="images/Contact.svg" alt="Icono Contacto" class="step-icon" />
+            <h3>1. Contáctame</h3>
+            <p>Definiremos juntos un horario ideal y estableceremos objetivos claros, adaptando completamente el curso a tus necesidades reales.</p>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="step-card">
+            <img src="images/Screen.svg" alt="Icono Método" class="step-icon" />
+            <h3>2. Descubre el Método</h3>
+            <p>En una breve sesión introductoria, te mostraré en la práctica cómo combino estructura y flexibilidad, asegurándome de que el curso responda exactamente a tu contexto personal y profesional.</p>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="step-card">
+            <img src="images/Chat.svg" alt="Icono Clases" class="step-icon" />
+            <h3>3. Empieza a Hablar Inglés</h3>
+            <p>Desde la primera clase, practicarás activamente conversaciones reales y dinámicas, alcanzando rápidamente fluidez y confianza natural en el idioma.</p>
+          </div>
+      </div>
+
+<p class="subtitle" style="margin-top: 30px;">
+  <strong>¿Listo para empezar?</strong>
+<span class="small-break"></span>
+<em>Agenda ahora tu reunión online conmigo y comienza a hablar inglés con confianza desde el primer día.</em>
+</p>
+
+<div class="steps-cta-container" style="margin-top: 4px;">
+  <a href="#contacto" class="cta-button">Agendar mi reunión ahora</a>
+</div>
+  </section>
+
+  <!-- Sección "Beneficios" -->
+  <section id="benefits" class="benefits fade-in">
+    <h2>Beneficios de Aprender Conmigo</h2>
+    <p class="subtitle">Descubre por qué mi método personalizado garantiza avances seguros y resultados concretos.</p>
+
+    <div class="benefits-grid">
+      <!-- 1. Método Probado -->
+      <div class="benefit-card">
+        <h3>Método Probado</h3>
+        <ul>
+          <li>Basado en años de experiencia real, perfeccionado continuamente.</li>
+          <li>Diseñado específicamente para obtener resultados visibles desde la primera clase.</li>
+        </ul>
+      </div>
+      <!-- 2. Clases 100% Individuales -->
+      <div class="benefit-card">
+        <h3>Clases 100% Individuales</h3>
+        <ul>
+          <li>Toda la atención enfocada exclusivamente en ti y en tu progreso.</li>
+          <li>Adaptadas completamente a tu ritmo, estilo y necesidades personales.</li>
+        </ul>
+      </div>
+      <!-- 3. Menos Presión, Más Confianza -->
+      <div class="benefit-card">
+        <h3>Menos Presión, Más Confianza</h3>
+        <ul>
+          <li>Ambiente seguro y amigable para que hables inglés sin miedo.</li>
+          <li>Ejercicios cuidadosamente diseñados para fortalecer tu seguridad y confianza.</li>
+        </ul>
+      </div>
+      <!-- 4. Flexibilidad de Horarios -->
+      <div class="benefit-card">
+        <h3>Flexibilidad de Horarios</h3>
+        <ul>
+          <li>Organiza tus clases en momentos ideales según tu rutina.</li>
+          <li>Ajusta fácilmente tu aprendizaje a tus ocupaciones cotidianas.</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Botón CTA final -->
+    <div class="benefits-cta-container">
+      <a href="#contacto" class="cta-button">¿Te convence? ¡Agenda ahora tu reunión online!</a>
+    </div>
+  </section>
+
+  <!-- Testimonios "Resultados Reales" -->
+  <section id="testimonials" class="testimonials scroll-animation">
+      <h2>Resultados Reales</h2>
+      <p class="subtitle">Estos testimonios reflejan la experiencia auténtica de mis alumnos, quienes ya están viviendo los resultados que tú también podrías alcanzar.</p>
+      <div class="testimonial-slider">
+          <!-- Flecha izquierda -->
+          <button class="testimonial-arrow left-arrow">&#10094;</button>
+          <div class="testimonial-cards">
+              <div class="testimonial-card">
+                  <p class="testimonial-text">Gracias a su enfoque didáctico y temas relevantes, he mejorado notablemente mi fluidez y comprensión en poco tiempo.</p>
+                  <p class="testimonial-author">Felipe R. - Ingeniero Civil Ambiental</p>
+              </div>
+              <div class="testimonial-card">
+                  <p class="testimonial-text">He mejorado notablemente mi fluidez y ahora me comunico con confianza gracias a un método dinámico y adaptado a mis conocimientos.</p>
+                  <p class="testimonial-author">Jaime B. - Médico Otorrinolaringólogo</p>
+              </div>
+              <div class="testimonial-card">
+                  <p class="testimonial-text">Pasé de no poder hablar inglés a expresarme con seguridad, gracias a una metodología clara, efectiva y motivadora.</p>
+                  <p class="testimonial-author">Gabriela C. - Química Industrial</p>
+              </div>
+              <div class="testimonial-card">
+                  <p class="testimonial-text">Este método me ayudó a perder el miedo a hablar inglés, avanzando con confianza y sin el estrés típico de aprender un idioma.</p>
+                  <p class="testimonial-author">Alexis A. - Ingeniero Civil Industrial</p>
+              </div>
+              <div class="testimonial-card">
+                  <p class="testimonial-text">Las clases me ayudaron a comenzar a pensar y hablar en inglés con confianza, gracias a una metodología personalizada, flexible y efectiva.</p>
+                  <p class="testimonial-author">Javier C. - Ingeniero en Prevención de Riesgos y Medio Ambiente</p>
+              </div>
+          </div>
+          <!-- Flecha derecha -->
+          <button class="testimonial-arrow right-arrow">&#10095;</button>
+      </div>
+      <!-- Puntos indicadores -->
+      <div class="testimonial-dots"></div>
+      <div class="testimonial-cta-container">
+          <a href="#contacto" class="cta-button">
+            Tú también puedes lograrlo. ¡Agenda tu reunión hoy mismo!
+          </a>
+      </div>
+  </section>
+
+  <!-- Sección "¿Para quién es este curso?" -->
+  <section id="para-quien" class="para-quien fade-in">
+    <h2>¿Este curso es para ti?</h2>
+    <p class="subtitle">Descubre si esta experiencia personalizada se ajusta perfectamente a tu estilo, metas y ritmo de vida.</p>
+
+    <div class="target-audience-grid">
+      <!-- Profesionales y Ejecutivos -->
+      <div class="audience-card">
+        <h3>Profesionales y Ejecutivos</h3>
+        <p>Resultados concretos que impulsan tu carrera.</p>
+        <ul>
+          <li>Inglés orientado a metas laborales claras.</li>
+          <li>Domina reuniones y presentaciones con confianza y precisión.</li>
+        </ul>
+      </div>
+      <!-- Adultos con Poco Tiempo -->
+      <div class="audience-card">
+        <h3>Adultos con Poco Tiempo</h3>
+        <p>Aprende rápido sin alterar tu agenda.</p>
+        <ul>
+          <li>Horarios totalmente adaptados a ti.</li>
+          <li>Sesiones breves y efectivas enfocadas en objetivos específicos.</li>
+        </ul>
+      </div>
+      <!-- Personas Tímidas o Inseguras -->
+      <div class="audience-card">
+        <h3>Personas Tímidas o Inseguras</h3>
+        <p>Habla inglés en un ambiente seguro y amigable.</p>
+        <ul>
+          <li>Rápida mejora en confianza y fluidez.</li>
+          <li>Clases sin presión, donde sentirás comodidad absoluta.</li>
+        </ul>
+      </div>
+      <!-- Jóvenes con Ganas de Crecer -->
+      <div class="audience-card">
+        <h3>Jóvenes con Ganas de Crecer</h3>
+        <p>Impulsa tu inglés para destacar académica y socialmente.</p>
+        <ul>
+          <li>Clases entretenidas, dinámicas y adaptadas a tus intereses.</li>
+          <li>Desarrollo de habilidades esenciales para exámenes y estudios futuros.</li>
+        </ul>
+      </div>
+      <!-- Quienes fracasaron con métodos grupales -->
+      <div class="audience-card">
+        <h3>¿Fracasaste con métodos grupales?</h3>
+        <p>La atención exclusiva que estabas buscando.</p>
+        <ul>
+          <li>Clases individuales, respetando siempre tu propio ritmo.</li>
+          <li>Avanza con independencia y sin depender del nivel del grupo.</li>
+        </ul>
+      </div>
+      <!-- Quienes sueñan con hablar inglés -->
+      <div class="audience-card">
+        <h3>Quienes Sueñan con Hablar Inglés</h3>
+        <p>Logra por fin expresarte con seguridad y fluidez.</p>
+        <ul>
+          <li>Progresos visibles desde el primer día.</li>
+          <li>Consigue naturalidad y confianza para comunicarte claramente.</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Llamado a la acción -->
+    <div class="target-audience-cta-container">
+      <a href="#contacto" class="cta-button">
+        ¿Te identificas? ¡Agenda ahora tu reunión online!
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq scroll-animation">
+    <h2>Preguntas Frecuentes</h2>
+    <p class="subtitle">Aquí respondo las dudas más comunes para que tomes con confianza el siguiente paso: agendar tu reunión online.</p>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Las clases son en vivo?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Sí, todas las clases se realizan en tiempo real para asegurar una experiencia interactiva y efectiva.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Cómo funcionan las clases?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Son sesiones individuales basadas en un método probado, adaptado específicamente a tus objetivos, contexto personal y profesional.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Cuánto cuestan las clases?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Mis clases individuales son un servicio premium con resultados rápidos y comprobables. La inversión está acorde con su alta calidad y eficacia. Para conocer el valor exacto y descubrir personalmente cómo puedo ayudarte según tus necesidades específicas, agenda ahora mismo una breve reunión online conmigo usando el formulario de contacto o WhatsApp al final de esta página.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Ofreces clases grupales o solo individuales?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Mis clases habitualmente son individuales, porque así garantizo la atención personalizada y resultados rápidos. Sin embargo, también ofrezco clases para dos personas (por ejemplo, familiares, parejas, amigos, etc.) siempre que tengan niveles y objetivos similares. Esta opción permite compartir la experiencia, además de tener un descuento respecto al valor de dos clases individuales separadas. Si te interesa esta alternativa, contáctame y conversaremos los detalles.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Puedo probar una clase antes de decidirme?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Sí, ofrezco una breve sesión introductoria en nuestra primera reunión online. Esta no es una clase completa, sino una demostración práctica de mi método personalizado. Así podrás comprobar directamente cómo trabajo, experimentar resultados concretos y decidir con plena confianza.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Necesito conocimientos previos?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        No. Las clases están cuidadosamente diseñadas tanto para principiantes absolutos como para estudiantes avanzados. Empezamos exactamente desde donde tú estás.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Cuántas clases tengo por semana?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Normalmente tendrás dos clases por semana, en horarios fijos pero con flexibilidad para ajustarlos ante imprevistos puntuales.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Cuánto dura cada clase?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Cada clase dura aproximadamente 55 minutos, equilibrando la teoría con la práctica.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Cuándo veré resultados si empiezo desde cero?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Desde las primeras semanas verás resultados palpables. Comprometiéndote plenamente con el método, en aproximadamente seis meses tu inglés comenzará a fluir con naturalidad y confianza.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Las clases incluyen práctica oral?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Sí. Cada sesión pone un énfasis especial en la conversación real y práctica oral, asegurando que aprendas realmente a comunicarte desde el primer día.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Qué materiales utilizaremos?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Trabajo con un curso estructurado y materiales adicionales según tus necesidades.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Necesito comprar libros o material extra?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        No, el curso incluye todo lo necesario. También recibirás recursos complementarios sin costo adicional.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Qué plataforma se usa para las clases?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Principalmente Zoom, que ofrece herramientas interactivas para un aprendizaje fluido y dinámico.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        ¿Cómo se agendan las clases?
+        <span class="faq-icon">▼</span>
+      </div>
+      <div class="faq-answer">
+        Definimos juntos un horario fijo adaptado a tu agenda. Si por alguna razón necesitas reprogramar una sesión, coordinamos fácilmente según nuestra disponibilidad mutua.
+      </div>
+    </div>
+
+    <p style="margin-top: 30px;">
+      <a href="#contacto" class="cta-button">¿Tienes más dudas? Agenda una reunión conmigo</a>
+    </p>
+  </section>
+
+  <!-- Contacto (Sección Mejorada) -->
+  <section id="contacto" class="fade-in">
+    <h2>Contáctame</h2>
+    <p class="subtitle">
+<strong>¿Estás listo para empezar a hablar inglés con confianza?</strong>
+<span class="small-break"></span>
+<em>Envíame tu información y responderé lo antes posible para coordinar nuestra reunión.</em>
+    </p>
+
+    <div class="contact-channels">
+      <a class="contact-button whatsapp-button" 
+         href="https://wa.me/56962299656" 
+         target="_blank" rel="noopener">
+        <img 
+          src="images/whatsapp-color.svg" 
+          alt="WhatsApp" 
+          class="icon-whatsapp"
+        >
+        <span>Habla conmigo por WhatsApp</span>
+      </a>
+
+      <a class="contact-button email-button" 
+         href="mailto:contacto@inglesccq.cl">
+        <img 
+          src="images/email-color.svg" 
+          alt="Email" 
+          class="icon-email"
+        >
+        <span>Enviar Email: contacto@inglesccq.cl</span>
+      </a>
+
+      <!-- Botón Copiar Email con SVG -->
+      <button 
+        class="contact-button copy-email-button" 
+        onclick="copyEmail()" 
+        type="button"
+      >
+        <svg 
+          width="20" 
+          height="20" 
+          viewBox="0 0 20 20" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2"
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          xmlns="http://www.w3.org/2000/svg"
+          style="margin-right: 8px;"
+        >
+          <!-- Cuadrado de atrás -->
+          <rect x="4" y="4" width="9" height="9" rx="1" ry="1"></rect>
+          <!-- Cuadrado de adelante, un poco desplazado -->
+          <rect x="7" y="7" width="9" height="9" rx="1" ry="1"></rect>
+        </svg>
+        Copiar Email al Portapapeles
+      </button>
+    </div>
+
+    <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+      <label for="userName">Nombre</label>
+      <input 
+        id="userName" 
+        type="text" 
+        name="name" 
+        placeholder="Ej. Juan Pérez" 
+        autocomplete="name" 
+        required 
+        aria-required="true"
+      >
+
+      <label for="userEmail">Email</label>
+      <input 
+        id="userEmail" 
+        type="email" 
+        name="email" 
+        placeholder="Ej. tuemail@ejemplo.com" 
+        autocomplete="email" 
+        required 
+        aria-required="true"
+      >
+
+      <label for="userMessage">Mensaje</label>
+      <textarea 
+        id="userMessage" 
+        name="message" 
+        placeholder="Cuéntame cuáles son tus objetivos con el inglés..." 
+        rows="5" 
+        required 
+        aria-required="true"
+      ></textarea>
+
+      <p style="font-size: 0.9rem; color: #555; text-align: left;">
+        Suelo responder dentro de 24 horas.<br>
+        Tu información será tratada de forma estrictamente confidencial y solo será utilizada para responder tu consulta.
+      </p>
+
+      <button type="submit">Enviar Ahora</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Carlos Covarrubias. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Botón flotante Scroll-to-Top con anillo de progreso -->
+  <div class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">
+    <svg viewBox="0 0 36 36" class="scroll-circle">
+      <path
+        class="circle-bg"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"
+      />
+      <path
+        class="circle"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"
+      />
+    </svg>
+    <span class="arrow-up">↑</span>
+  </div>
+
+  <!-- Scripts -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".fade-in, .scroll-animation");
+
+    const observer = new IntersectionObserver(
+      (entries, observerInstance) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            // 👇 Detiene la observación para que la animación ocurra solo una vez
+            observerInstance.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.01,
+        rootMargin: "0px 0px -10% 0px"
+      }
+    );
+
+    elements.forEach(el => observer.observe(el));
+  });
+</script>
+
+  <script>
+    // Resaltar la sección activa en el menú
+    window.addEventListener('scroll', function() {
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('.navbar ul li a');
+
+        sections.forEach(section => {
+            let top = window.scrollY;
+            let offset = section.offsetTop - 80; 
+            let height = section.offsetHeight;
+            let id = section.getAttribute('id');
+
+            if (top >= offset && top < offset + height) {
+                navLinks.forEach(link => {
+                    link.parentElement.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + id) {
+                        link.parentElement.classList.add('active');
+                    }
+                });
+            }
+        });
+    });
+  </script>
+
+  <script>
+    // Menú hamburguesa + cambio de color navbar
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.navbar ul').classList.toggle('active');
+    });
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+  </script>
+<script>
+    // Al hacer clic en cualquier enlace del menú, retrae el menú hamburguesa
+    const menuLinks = document.querySelectorAll('.navbar ul li a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.navbar ul').classList.remove('active');
+      });
+    });
+  </script>
+  <script>
+    // Barra de progreso superior
+    window.addEventListener('scroll', function() {
+        const progressBar = document.querySelector('.progress-bar');
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        const progress = (window.scrollY / totalHeight) * 100;
+        progressBar.style.width = progress + '%';
+    });
+  </script>
+
+  <script>
+    // Carrusel manual + auto-play en testimonios
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    const cardsContainer = document.querySelector('.testimonial-cards');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const dotsContainer = document.querySelector('.testimonial-dots');
+
+    let currentIndex = 0;
+    const totalSlides = testimonialCards.length;
+    let autoPlay;
+    let hoverTimer;
+
+    // Generar dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('testimonial-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        goToSlide(i);
+        resetAutoPlay();
+      });
+      dotsContainer.appendChild(dot);
+    }
+    const allDots = document.querySelectorAll('.testimonial-dot');
+
+    function updateDots(index) {
+      allDots.forEach(dot => dot.classList.remove('active'));
+      allDots[index].classList.add('active');
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      cardsContainer.style.transform = `translateX(-${index * 100}%)`;
+      updateDots(index);
+    }
+
+    function startAutoPlay() {
+      autoPlay = setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        goToSlide(currentIndex);
+      }, 9000);
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoPlay);
+    }
+
+    function resetAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
+    leftArrow.addEventListener('click', () => {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = totalSlides - 1;
+      }
+      goToSlide(currentIndex);
+      resetAutoPlay();
+    });
+
+    rightArrow.addEventListener('click', () => {
+      currentIndex++;
+      if (currentIndex > totalSlides - 1) {
+        currentIndex = 0;
+      }
+      goToSlide(currentIndex);
+      resetAutoPlay();
+    });
+
+    function handleMouseEnter() {
+      stopAutoPlay();
+      if (hoverTimer) {
+        clearTimeout(hoverTimer);
+      }
+    }
+    function handleMouseLeave() {
+      hoverTimer = setTimeout(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        goToSlide(currentIndex);
+        startAutoPlay();
+      }, 2000);
+    }
+
+    cardsContainer.addEventListener('mouseover', handleMouseEnter);
+    cardsContainer.addEventListener('mouseleave', handleMouseLeave);
+    leftArrow.addEventListener('mouseover', handleMouseEnter);
+    leftArrow.addEventListener('mouseleave', handleMouseLeave);
+    rightArrow.addEventListener('mouseover', handleMouseEnter);
+    rightArrow.addEventListener('mouseleave', handleMouseLeave);
+
+    goToSlide(0);
+    startAutoPlay();
+  </script>
+
+  <!-- Acordeón FAQ -->
+  <script>
+    function toggleFAQ(element) {
+      const answer = element.nextElementSibling;
+      const icon = element.querySelector('.faq-icon');
+      const isOpen = answer.classList.contains('open');
+
+      // Cierra todos los que estén abiertos
+      document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate'));
+
+      if (!isOpen) {
+        answer.classList.add('open');
+        icon.classList.add('rotate');
+      }
+    }
+  </script>
+
+  <!-- Función para copiar el correo al portapapeles -->
+  <script>
+function copyEmail() {
+  const email = "contacto@inglesccq.cl"; 
+  navigator.clipboard.writeText(email)
+    .then(() => {
+      alert("¡Correo copiado! Espero tu mensaje pronto.");
+    })
+    .catch(err => {
+      console.error("Error al copiar: ", err);
+      alert("No se pudo copiar el correo. Por favor, cópialo manualmente: contacto@inglesccq.cl");
+    });
+}
+  </script>
+
+  <!-- Script del botón "Scroll to Top" con anillo de progreso -->
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', () => {
+      const circle = document.querySelector('.circle');
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollFraction = scrollTop / docHeight;
+      const drawLength = 100 - (scrollFraction * 100);
+      circle.style.strokeDashoffset = drawLength;
+
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      if (scrollTop > 100) {
+        scrollToTopBtn.style.display = 'flex';
+      } else {
+        scrollToTopBtn.style.display = 'none';
+      }
+    });
+  </script>
+
+  <!-- Submit del formulario via AJAX (Formspree) -->
+  <script>
+    // Ajusta la variable endpoint con tu propio Formspree
+    const endpoint = "https://formspree.io/f/mdkelgre";
+
+    function submitForm(e) {
+      e.preventDefault(); // Evita recargar la página
+      const form = e.target;
+
+      fetch(endpoint, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          "Accept": "application/json" // Para no redirigir al /thanks
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Mensaje de éxito
+          alert("¡Gracias por tu mensaje! Te responderé personalmente en las próximas 24 horas para coordinar nuestra reunión online.");
+          form.reset(); // Limpia campos
+        } else {
+          // Error de Formspree (ej: endpoint incorrecto, límite superado, etc.)
+          alert("Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente más tarde o contáctame directamente por WhatsApp o email.");
+        }
+      })
+      .catch(() => {
+        alert("Parece que hay un problema de conexión. Verifica tu internet e inténtalo nuevamente. Si persiste, puedes escribirme directamente por WhatsApp o email.");
+      });
+    }
+  </script>
+
+</body>
+</html>
